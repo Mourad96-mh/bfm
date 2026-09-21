@@ -1,0 +1,241 @@
+/* Blocs transverses : fil d'Ariane, FAQ, bandeau de conversion, note juridique, barre WhatsApp. */
+
+/* — Fil d'Ariane — */
+
+.crumbs {
+  padding-block: 0.9rem;
+  border-bottom: var(--hairline);
+  background: var(--cream);
+  font-size: var(--t-xs);
+  color: var(--ink-muted);
+}
+
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crumbs li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.crumbs a {
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.crumbs a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.crumbs li[aria-current] {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.sep {
+  color: var(--rule-strong);
+}
+
+/* — FAQ — */
+
+.faq {
+  border-top: 1px solid var(--rule);
+}
+
+.item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.item summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.15rem 0;
+  font-family: var(--font-head);
+  font-size: var(--t-md);
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  list-style: none;
+}
+
+.item summary::-webkit-details-marker {
+  display: none;
+}
+
+.item summary::after {
+  content: "";
+  flex: none;
+  width: 13px;
+  height: 13px;
+  margin-top: 6px;
+  border-right: 2px solid var(--gold-600);
+  border-bottom: 2px solid var(--gold-600);
+  transform: rotate(45deg);
+  transition: transform 0.2s var(--ease);
+}
+
+.item[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+.item summary:hover {
+  color: var(--green);
+}
+
+.answer {
+  max-width: 78ch;
+  padding-bottom: 1.2rem;
+  color: var(--ink-muted);
+}
+
+.answer p {
+  margin: 0;
+}
+
+/* — Bandeau de conversion — */
+
+.cta {
+  position: relative;
+  background: var(--navy);
+  color: #d6dfea;
+}
+
+.ctaInner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding-block: clamp(2.75rem, 5.5vw, 4.5rem);
+}
+
+@media (max-width: 860px) {
+  .ctaInner {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+.ctaInner h2 {
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.ctaInner p {
+  max-width: 54ch;
+  margin: 0;
+  color: #b7c5d6;
+}
+
+.ctaActions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.ctaPhone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  /* Cible tactile : 44 px minimum, recommandation WCAG 2.5.5. */
+  min-height: 44px;
+  font-family: var(--font-head);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.ctaPhone:hover {
+  color: var(--gold);
+}
+
+.ctaNote {
+  font-size: var(--t-xs);
+  color: #8fa2ba;
+}
+
+/* — Note juridique — */
+
+.legalNote {
+  display: flex;
+  gap: 0.9rem;
+  max-width: 78ch;
+  margin: 2.5rem 0 0;
+  padding: 1.1rem 1.3rem;
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  font-size: var(--t-sm);
+  color: var(--ink-muted);
+}
+
+.legalNote strong {
+  color: var(--navy);
+}
+
+.legalNote p {
+  margin: 0;
+}
+
+/* — Boutons d'appel flottants (téléphone + WhatsApp) — */
+
+.floatBar {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.float {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  color: #fff;
+  border-radius: 50%;
+  font-family: var(--font-head);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 22px rgba(11, 29, 58, 0.25);
+  transition: background 0.18s var(--ease);
+}
+
+.floatWa {
+  background: #1f9d55;
+}
+
+.floatWa:hover {
+  background: #177941;
+}
+
+.floatPhone {
+  background: var(--navy);
+}
+
+.floatPhone:hover {
+  background: var(--green-800);
+}
+
+@media (max-width: 560px) {
+  .float {
+    width: 50px;
+    height: 50px;
+  }
+}

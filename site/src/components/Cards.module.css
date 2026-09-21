@@ -1,0 +1,223 @@
+/*
+ * Grilles de cartes : services associés, publics, guides.
+ *
+ * Parti pris : pas d'ombre portée ni d'icône ronde centrée. Une carte est un rectangle bordé
+ * d'un filet, avec un liseré or qui se révèle au survol — le même vocabulaire que la plaquette.
+ */
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 980px) {
+  .grid3,
+  .grid4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .grid3,
+  .grid4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* — Carte service / public — */
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.4rem 1.4rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.18s var(--ease), transform 0.18s var(--ease);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -1px -1px auto;
+  height: 3px;
+  background: var(--gold);
+  border-radius: var(--r-md) var(--r-md) 0 0;
+  opacity: 0;
+  transition: opacity 0.18s var(--ease);
+}
+
+.card:hover {
+  border-color: var(--rule-strong);
+  transform: translateY(-2px);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.cardNum {
+  margin-bottom: 0.7rem;
+  font-family: var(--font-head);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.1em;
+  color: var(--gold-600);
+}
+
+.cardTitle {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-head);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1.22;
+}
+
+.card:hover .cardTitle {
+  color: var(--green);
+}
+
+.cardText {
+  margin: 0 0 1.1rem;
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.cardMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  font-family: var(--font-head);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.card:hover .cardMore svg {
+  transform: translateX(3px);
+}
+
+.cardMore svg {
+  transition: transform 0.18s var(--ease);
+}
+
+/* — Carte public, avec vignette — */
+
+.audience {
+  overflow: hidden;
+  padding: 0;
+}
+
+.audienceImg {
+  width: 100%;
+  height: 168px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--rule);
+}
+
+.audienceBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 1.3rem 1.3rem;
+}
+
+/* — Carte guide — */
+
+.guide {
+  padding-top: 1.3rem;
+}
+
+.guideMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+  margin-bottom: 0.8rem;
+  font-size: var(--t-xs);
+  color: var(--ink-faint);
+}
+
+.guideTag {
+  padding: 0.22rem 0.6rem;
+  background: var(--green-100);
+  border-radius: 2px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green-800);
+}
+
+/* — Prestations d'une fiche (icône + texte, alignées à gauche) — */
+
+.capabilities {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+@media (max-width: 760px) {
+  .capabilities {
+    grid-template-columns: 1fr;
+  }
+}
+
+.capability {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  padding: 1.4rem 1.6rem 1.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.capability:nth-child(odd) {
+  padding-right: 2.4rem;
+}
+
+@media (min-width: 761px) {
+  .capability:nth-child(odd) {
+    border-right: 1px solid var(--rule);
+  }
+  .capability:nth-child(even) {
+    padding-left: 1.8rem;
+  }
+}
+
+.capIcon {
+  grid-row: span 2;
+  color: var(--green);
+}
+
+.capTitle {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: var(--t-base);
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.capText {
+  margin: 0;
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--ink-muted);
+}

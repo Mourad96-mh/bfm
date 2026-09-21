@@ -1,0 +1,73 @@
+/*
+ * BFM — jetons de conception
+ *
+ * Palette reprise de la charte existante (plaquette + site actuel) :
+ * navy #0B1D3A · vert #0E7A53 · or #C9A227 · crème #F7F5EF
+ *
+ * Parti pris (cf. ARCHITECTURE.md §5.2) : filets et règles typographiques plutôt qu'ombres
+ * portées, rayons courts, alignement à gauche. On évite volontairement le vocabulaire visuel
+ * générique (dégradés violets, glassmorphism, cartes à icône ronde centrée).
+ */
+
+:root {
+  /* — Marque — */
+  --navy: #0b1d3a;
+  --navy-700: #12294d;
+  --navy-500: #1d3a63;
+  --green: #0e7a53;
+  --green-800: #0b3d2c;
+  --green-600: #11694a;
+  --green-100: #dff0e7;
+  --gold: #c9a227;
+  --gold-600: #a8851c;
+  --gold-100: #f5ecd2;
+
+  /* — Neutres — */
+  --cream: #f7f5ef;
+  --cream-200: #efece1;
+  --paper: #ffffff;
+  --ink: #17243a;
+  --ink-muted: #5a6473;
+  --ink-faint: #838d9c;
+  --rule: #e2ddd0;
+  --rule-strong: #cdc6b4;
+
+  /* — Typographie — */
+  --font-head: var(--font-archivo), "Archivo", "Segoe UI", sans-serif;
+  --font-body: var(--font-plex), "IBM Plex Sans", "Segoe UI", sans-serif;
+
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
+  --t-base: 1rem;
+  --t-md: 1.0625rem;
+  --t-lg: 1.1875rem;
+  --t-xl: clamp(1.25rem, 1.05rem + 0.8vw, 1.5rem);
+  --t-2xl: clamp(1.5rem, 1.2rem + 1.3vw, 2rem);
+  --t-3xl: clamp(1.875rem, 1.4rem + 2.1vw, 2.75rem);
+  --t-4xl: clamp(2.25rem, 1.5rem + 3.2vw, 3.75rem);
+  --t-5xl: clamp(2.5rem, 1.5rem + 4.4vw, 4.5rem);
+
+  /* — Rythme — */
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --wrap: 1240px;
+  --wrap-narrow: 760px;
+  --section-y: clamp(3.5rem, 7vw, 6rem);
+
+  /* — Traits & rayons — */
+  --r-sm: 3px;
+  --r-md: 4px;
+  --r-lg: 8px;
+  --hairline: 1px solid var(--rule);
+
+  /* Ombres rares, courtes, jamais colorées. */
+  --shadow-sm: 0 1px 2px rgba(11, 29, 58, 0.06);
+  --shadow-md: 0 6px 20px rgba(11, 29, 58, 0.09);
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* — Zellige (khatem à 8 branches) — motif généré, voir scripts/images.mjs pour les visuels.
+     Deux variantes : trait navy sur fond clair, trait or sur fond navy. */
+  --zellige-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='108' height='108' viewBox='0 0 108 108'%3E%3Cpath d='M54.0 24.0L62.8 32.8L75.2 32.8L75.2 45.2L84.0 54.0L75.2 62.8L75.2 75.2L62.8 75.2L54.0 84.0L45.2 75.2L32.8 75.2L32.8 62.8L24.0 54.0L32.8 45.2L32.8 32.8L45.2 32.8ZM0.0 -30.0L8.8 -21.2L21.2 -21.2L21.2 -8.8L30.0 0.0L21.2 8.8L21.2 21.2L8.8 21.2L0.0 30.0L-8.8 21.2L-21.2 21.2L-21.2 8.8L-30.0 0.0L-21.2 -8.8L-21.2 -21.2L-8.8 -21.2ZM108.0 -30.0L116.8 -21.2L129.2 -21.2L129.2 -8.8L138.0 0.0L129.2 8.8L129.2 21.2L116.8 21.2L108.0 30.0L99.2 21.2L86.8 21.2L86.8 8.8L78.0 0.0L86.8 -8.8L86.8 -21.2L99.2 -21.2ZM0.0 78.0L8.8 86.8L21.2 86.8L21.2 99.2L30.0 108.0L21.2 116.8L21.2 129.2L8.8 129.2L0.0 138.0L-8.8 129.2L-21.2 129.2L-21.2 116.8L-30.0 108.0L-21.2 99.2L-21.2 86.8L-8.8 86.8ZM108.0 78.0L116.8 86.8L129.2 86.8L129.2 99.2L138.0 108.0L129.2 116.8L129.2 129.2L116.8 129.2L108.0 138.0L99.2 129.2L86.8 129.2L86.8 116.8L78.0 108.0L86.8 99.2L86.8 86.8L99.2 86.8Z' fill='none' stroke='%230B1D3A' stroke-width='1.4'/%3E%3C/svg%3E");
+  --zellige-url-gold: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='108' height='108' viewBox='0 0 108 108'%3E%3Cpath d='M54.0 24.0L62.8 32.8L75.2 32.8L75.2 45.2L84.0 54.0L75.2 62.8L75.2 75.2L62.8 75.2L54.0 84.0L45.2 75.2L32.8 75.2L32.8 62.8L24.0 54.0L32.8 45.2L32.8 32.8L45.2 32.8ZM0.0 -30.0L8.8 -21.2L21.2 -21.2L21.2 -8.8L30.0 0.0L21.2 8.8L21.2 21.2L8.8 21.2L0.0 30.0L-8.8 21.2L-21.2 21.2L-21.2 8.8L-30.0 0.0L-21.2 -8.8L-21.2 -21.2L-8.8 -21.2ZM108.0 -30.0L116.8 -21.2L129.2 -21.2L129.2 -8.8L138.0 0.0L129.2 8.8L129.2 21.2L116.8 21.2L108.0 30.0L99.2 21.2L86.8 21.2L86.8 8.8L78.0 0.0L86.8 -8.8L86.8 -21.2L99.2 -21.2ZM0.0 78.0L8.8 86.8L21.2 86.8L21.2 99.2L30.0 108.0L21.2 116.8L21.2 129.2L8.8 129.2L0.0 138.0L-8.8 129.2L-21.2 129.2L-21.2 116.8L-30.0 108.0L-21.2 99.2L-21.2 86.8L-8.8 86.8ZM108.0 78.0L116.8 86.8L129.2 86.8L129.2 99.2L138.0 108.0L129.2 116.8L129.2 129.2L116.8 129.2L108.0 138.0L99.2 129.2L86.8 129.2L86.8 116.8L78.0 108.0L86.8 99.2L86.8 86.8L99.2 86.8Z' fill='none' stroke='%23C9A227' stroke-width='1.4'/%3E%3C/svg%3E");
+
+}

@@ -1,0 +1,495 @@
+/* Gabarits communs aux pages intérieures : en-têtes, fiche de service, guides, contact. */
+
+/* — En-tête de page simple — */
+
+.head {
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+}
+
+.headInner {
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.headInner h1 {
+  max-width: 20ch;
+  margin-bottom: 0.9rem;
+}
+
+.headInner .lead {
+  margin-bottom: 0;
+}
+
+/* — En-tête de fiche de service : numéro + titre + photo débordante — */
+
+.serviceHead {
+  position: relative;
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+}
+
+.serviceHeadInner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+}
+
+.plate {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.plateNum {
+  font-family: var(--font-head);
+  font-size: var(--t-2xl);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.plateRule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+.serviceHeadInner h1 {
+  margin-bottom: 0.8rem;
+  max-width: 17ch;
+}
+
+.serviceMedia img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border-radius: var(--r-md);
+}
+
+@media (max-width: 900px) {
+  .serviceHeadInner {
+    grid-template-columns: 1fr;
+  }
+  .serviceMedia img {
+    max-height: 280px;
+  }
+}
+
+/* — Encadré « Notre priorité » — */
+
+.priority {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.4rem;
+  align-items: start;
+  padding: clamp(1.6rem, 3vw, 2.2rem);
+  background: var(--navy);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  color: #d6dfea;
+}
+
+.priority h2 {
+  margin: 0 0 0.4rem;
+  font-size: var(--t-lg);
+  color: #fff;
+}
+
+.priority p {
+  margin: 0;
+  max-width: 70ch;
+}
+
+.priorityIcon {
+  color: var(--gold);
+}
+
+/* — « Pour qui ? » — */
+
+.forWho {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  padding: 0.6rem 1.1rem;
+  background: var(--paper);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r-md);
+  font-family: var(--font-head);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.chip:hover {
+  border-color: var(--green);
+  background: var(--green-100);
+  color: var(--green-800);
+}
+
+/* — Engagements du métier (bandeau clair, filets) — */
+
+.engagements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.engagement {
+  padding: 1.4rem 1.4rem 1.4rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.engagement h3 {
+  margin: 0 0 0.3rem;
+  font-size: var(--t-base);
+}
+
+.engagement p {
+  margin: 0;
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+/* — Rappel de méthode, en ligne — */
+
+.methodRow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+  .methodRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .methodRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.methodItem {
+  padding-top: 0.9rem;
+  border-top: 2px solid var(--gold);
+}
+
+.methodItem strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-head);
+  font-size: var(--t-base);
+  color: var(--navy);
+}
+
+.methodItem span {
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+/* — Deux colonnes : contenu + colonne latérale — */
+
+.withAside {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .withAside {
+    grid-template-columns: 1fr;
+  }
+}
+
+.aside {
+  position: sticky;
+  top: 100px;
+  padding: 1.4rem;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+}
+
+.aside h2 {
+  margin: 0 0 0.8rem;
+  font-size: var(--t-base);
+}
+
+.aside ol,
+.aside ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: var(--t-sm);
+}
+
+.aside li {
+  margin-bottom: 0.25rem;
+}
+
+.aside a {
+  display: inline-block;
+  /* Cible tactile : un lien de sommaire sur une seule ligne fait 18 px de haut, sous le
+     minimum recommandé ; le padding vertical l'amène au-delà de 24 px sans rien déplacer. */
+  padding-block: 0.3rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.aside a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+/* — Contenu long d'un guide — */
+
+.guideHead {
+  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+}
+
+.guideMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.2rem;
+  margin-top: 1.2rem;
+  font-size: var(--t-sm);
+  color: var(--ink-muted);
+}
+
+.guideMeta span[data-tag] {
+  padding: 0.25rem 0.65rem;
+  background: var(--green-100);
+  border-radius: 2px;
+  font-family: var(--font-head);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green-800);
+}
+
+.callout {
+  margin: 2rem 0;
+  padding: 1.3rem 1.5rem;
+  background: var(--cream);
+  border-left: 3px solid var(--green);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+}
+
+.callout strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-head);
+  color: var(--navy);
+}
+
+.callout p {
+  margin: 0;
+  font-size: var(--t-sm);
+  color: var(--ink-muted);
+}
+
+.tableWrap {
+  margin: 1.8rem 0;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-sm);
+}
+
+.table th,
+.table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule);
+}
+
+.table th {
+  font-family: var(--font-head);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--cream);
+  border-bottom: 2px solid var(--rule-strong);
+}
+
+.table tr:last-child td {
+  border-bottom: 0;
+}
+
+/* — Page contact — */
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contactCard {
+  padding: 1.6rem;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+}
+
+.contactCard h2 {
+  margin: 0 0 1rem;
+  font-size: var(--t-lg);
+}
+
+.contactLines {
+  display: grid;
+  gap: 0.9rem;
+  margin-bottom: 1.4rem;
+}
+
+.contactLine {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: var(--t-sm);
+  line-height: 1.5;
+}
+
+.contactLine svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--green);
+}
+
+.contactLine a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contactLine a:hover {
+  text-decoration: underline;
+}
+
+.contactActions {
+  display: grid;
+  gap: 0.6rem;
+}
+
+/* — Listes de zones — */
+
+.zones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.zone {
+  padding: 1.2rem 1.4rem 1.2rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.zone strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: var(--t-base);
+  color: var(--navy);
+}
+
+.zone span {
+  font-size: var(--t-sm);
+  color: var(--ink-muted);
+}
+
+/* — Pages légales — */
+
+.legalPage {
+  max-width: 78ch;
+}
+
+.legalPage h2 {
+  font-size: var(--t-xl);
+}
+
+.todo {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  background: var(--gold-100);
+  border: 1px dashed var(--gold-600);
+  border-radius: 2px;
+  font-family: var(--font-head);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  color: var(--gold-600);
+}
+
+/* — Petits utilitaires de rythme, pour éviter les styles en ligne — */
+
+.gridGap {
+  margin-top: 1.8rem;
+}
+
+.blockGap {
+  margin-top: 3rem;
+}
+
+.asideSecond {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* Liste d'engagements de la colonne latérale d'une fiche. */
+.asideList {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.asideList li {
+  margin-bottom: 0.9rem;
+  font-size: var(--t-sm);
+}
+
+.asideList strong {
+  display: block;
+  font-family: var(--font-head);
+  color: var(--navy);
+}
+
+.asideList span {
+  color: var(--ink-muted);
+}

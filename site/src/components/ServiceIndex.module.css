@@ -1,0 +1,82 @@
+/*
+ * Le sommaire numéroté 01 → 10.
+ *
+ * C'est la signature du site : plutôt que dix cartes identiques à icône ronde centrée — le
+ * réflexe qu'on s'interdit (ARCHITECTURE.md §5.2) —, on reprend la numérotation des planches
+ * de la plaquette sous forme de lignes éditoriales, alignées à gauche, séparées par des filets.
+ */
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+@media (max-width: 900px) {
+  .list {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 0 1.25rem;
+  padding: 1.3rem 0.4rem 1.3rem 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 0.18s var(--ease), padding-left 0.18s var(--ease);
+}
+
+.row:hover,
+.row:focus-visible {
+  background: var(--cream);
+  padding-left: 0.7rem;
+}
+
+.num {
+  font-family: var(--font-head);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  color: var(--gold-600);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+.row:hover .title {
+  color: var(--green);
+}
+
+.excerpt {
+  grid-column: 2;
+  margin: 0.35rem 0 0;
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 46ch;
+}
+
+.arrow {
+  align-self: center;
+  color: var(--rule-strong);
+  transition: transform 0.18s var(--ease), color 0.18s var(--ease);
+}
+
+.row:hover .arrow {
+  color: var(--green);
+  transform: translateX(3px);
+}

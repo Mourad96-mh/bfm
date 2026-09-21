@@ -1,0 +1,100 @@
+/* Formulaire de devis : champs sobres, filets plutôt qu'ombres, cibles ≥ 46 px. */
+
+.form {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+}
+
+@media (max-width: 620px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.field > span {
+  font-family: var(--font-head);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.field b {
+  color: var(--gold-600);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.7rem 0.85rem;
+  background: var(--paper);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-size: var(--t-base);
+  color: var(--ink);
+}
+
+.field textarea {
+  min-height: auto;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: var(--gold);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--ink-faint);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.actions a[aria-disabled='true'] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.error {
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  background: #fdf1ef;
+  border-left: 3px solid #b3261e;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  font-size: var(--t-sm);
+  color: #8c1d18;
+}
+
+.note {
+  margin: 0;
+  font-size: var(--t-xs);
+  line-height: 1.55;
+  color: var(--ink-faint);
+}
+
+.note b {
+  color: var(--gold-600);
+}

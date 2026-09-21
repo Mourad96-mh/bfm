@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 208" width="240" height="208" role="img" aria-label="BFM">
+  
+    <g fill="none" stroke-linecap="butt" stroke-linejoin="miter">
+      <!-- Pelouse : posée en premier pour passer derrière le pavillon. -->
+      <path d="M138 192c9-12 25-19 43-19 10 0 20 2 28 5v14H138Z" fill="#0E7A53" stroke="none" opacity="0.9"/>
+
+      <!-- Cyprès gauche et droit -->
+      <g fill="#2E9E6B" stroke="none">
+        <path d="M31 186c-7 0-11-5-11-18s5-30 11-30 11 17 11 30-4 18-11 18Z"/>
+        <rect x="29" y="182" width="4" height="10"/>
+        <path d="M211 186c-7 0-11-5-11-18s5-30 11-30 11 17 11 30-4 18-11 18Z"/>
+        <rect x="209" y="182" width="4" height="10"/>
+      </g>
+
+      <!-- Skyline : trois volumes à la ligne, trait navy -->
+      <g stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round">
+        <path d="M50 192v-58h32v58"/>
+        <path d="M82 192V84h30v108"/>
+        <path d="M112 192v-42h24v42"/>
+        <path d="M97 84V66"/>
+        <path d="M58 146h16M58 160h16M58 174h16"/>
+        <path d="M120 162h8M120 176h8"/>
+        <path d="M91 102h12M91 118h12M91 134h12M91 150h12"/>
+      </g>
+      <circle cx="97" cy="61" r="5" fill="#FFFFFF" stroke="none"/>
+
+      <!-- Pavillon, en or -->
+      <g stroke="#C9A227" stroke-width="5.5" stroke-linejoin="round">
+        <path d="M148 192v-46h38v46"/>
+        <path d="M142 146h50"/>
+        <path d="M142 134h50v12h-50z"/>
+        <path d="M159 192v-24h16v24"/>
+      </g>
+
+      <!-- La maison englobante : deux pignons décalés, ouverte en bas. -->
+      <path d="M12 192V74L96 24l44 42V12l83 62v118" stroke="#C9A227" stroke-width="11"/>
+      <path d="M6 192h223" stroke="#C9A227" stroke-width="11"/>
+    </g>
+</svg>

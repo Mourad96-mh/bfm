@@ -1,0 +1,282 @@
+/* Accueil : le grand bandeau, la promesse « un seul interlocuteur », la méthode, les engagements. */
+
+/* — Hero — */
+
+.hero {
+  position: relative;
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+}
+
+.heroText h1 {
+  margin-bottom: 1.1rem;
+  max-width: 16ch;
+}
+
+.heroText h1 em {
+  font-style: normal;
+  color: var(--green);
+}
+
+.heroLead {
+  max-width: 52ch;
+  font-size: var(--t-lg);
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+.heroPoints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.6rem;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--t-sm);
+  color: var(--navy);
+}
+
+.heroPoints li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.heroPoints svg {
+  color: var(--gold-600);
+}
+
+/* Le visuel : photo portrait, filet or décalé — pas d'ombre portée. */
+.heroMedia {
+  position: relative;
+}
+
+.heroMedia img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+  border-radius: var(--r-md);
+}
+
+.heroMedia::after {
+  content: "";
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 1px solid var(--gold);
+  border-radius: var(--r-md);
+}
+
+@media (max-width: 900px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+  }
+  .heroMedia {
+    order: -1;
+  }
+  .heroMedia img {
+    max-height: 300px;
+  }
+  .heroMedia::after {
+    display: none;
+  }
+}
+
+/* — Deux colonnes texte + image — */
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.splitReverse .splitMedia {
+  order: -1;
+}
+
+/* Variante « deux colonnes de texte » : les titres doivent s'aligner en haut, pas au centre. */
+.splitTop {
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .splitReverse .splitMedia {
+    order: 0;
+  }
+}
+
+.splitMedia img {
+  width: 100%;
+  border-radius: var(--r-md);
+}
+
+/* — Liste d'arguments à filets — */
+
+.args {
+  margin: 1.8rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.args li {
+  padding: 1rem 0 1rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.args li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.args strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-family: var(--font-head);
+  font-size: var(--t-base);
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.args span {
+  font-size: var(--t-sm);
+  color: var(--ink-muted);
+}
+
+/* — La méthode, en cinq étapes — */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 980px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.step {
+  padding-top: 1.1rem;
+  border-top: 3px solid var(--gold);
+}
+
+.stepNum {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-family: var(--font-head);
+  font-size: var(--t-2xl);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--navy);
+  opacity: 0.22;
+}
+
+.step h3 {
+  margin: 0 0 0.35rem;
+  font-size: var(--t-base);
+}
+
+.step p {
+  margin: 0;
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+/* — Engagements sur fond navy — */
+
+.commitments {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 980px) {
+  .commitments {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .commitments {
+    grid-template-columns: 1fr;
+  }
+}
+
+.commitment {
+  padding: 1.6rem 1.6rem 1.6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@media (min-width: 981px) {
+  .commitment + .commitment {
+    padding-left: 1.6rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
+
+.commitment h3 {
+  margin: 0 0 0.4rem;
+  font-size: var(--t-base);
+  color: #fff;
+}
+
+.commitment p {
+  margin: 0;
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  color: #a9bace;
+}
+
+/* — En-tête de section à deux colonnes (titre à gauche, chapô à droite) — */
+
+.sectionHead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem clamp(2rem, 5vw, 4rem);
+  align-items: end;
+  margin-bottom: 2.4rem;
+}
+
+@media (max-width: 800px) {
+  .sectionHead {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+.sectionHead h2 {
+  margin: 0;
+  max-width: 18ch;
+}
+
+.sectionHead p {
+  margin: 0;
+  color: var(--ink-muted);
+  max-width: 56ch;
+}
